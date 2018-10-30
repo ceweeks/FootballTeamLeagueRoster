@@ -11,18 +11,25 @@
 <title>View All Teams</title>
 </head>
 <body>
+<mvc:form modelAttribute="team" action="form.mvc" id="selectTeamForm">
 	<c:forEach items="${all}" var="item">
 		<table>
 			<tr>
+				<td><mvc:radiobutton path="id" value="${item.id}"/></td>
 				<td>Team Name</td>
 				<td>${item.teamName}</td>
+				<td><mvc:hidden path="teamName" value="${item.teamName}"/></td>
 			</tr>
-
-		</table>
+		</table>		
 		<br />
 		<hr style="text-align: left; margin-left: 0; width: 25%">
 		<br />
 	</c:forEach>
+	
+	<input type="submit" value="Add a Player" id="addPlayerButton">
+	<input type="button" value="View Players" id="viewPlayersButton" onclick="location.href='viewAllPlayers.mvc'">
+</mvc:form>	
+	<br>
 	<a href="form.mvc">Add a new player</a><br/>
 	<a href="addTeam.mvc">Add a new team</a>
 </body>

@@ -38,6 +38,9 @@
             <td><mvc:select path="grade" items="${grades}" /></td>
         </tr>
         <tr>
+            <td><mvc:hidden path="teamId" value="${teamid}" /></td>
+        </tr>
+        <tr>
 	        <td colspan="2">
                 <input type="submit" value="Submit" id="submitButton"/>
 	        </td>

@@ -16,11 +16,12 @@ public class UserController {
 	private static final String[] grades = {"Freshman", "Sophomore", "Junior", "Senior"};
 	
 	@RequestMapping(value = "/form")
-		public ModelAndView player() {
+		public ModelAndView player(Team team) {
 			ModelAndView modelAndView = new ModelAndView();
 			modelAndView.setViewName("pages/playerForm.jsp");
 			modelAndView.addObject("player", new Player());
 			modelAndView.addObject("grades", grades);
+			modelAndView.addObject("teamid", team.getId());
 			return modelAndView;
 		}
 
@@ -47,6 +48,7 @@ public class UserController {
 		ModelAndView modelAndView = new ModelAndView();
 		List<Team> allTeams = tdao.getAllTeams();
 		modelAndView.setViewName("pages/viewAllTeams.jsp");
+		modelAndView.addObject("team", new Team());
 		modelAndView.addObject("all", allTeams);
 		return modelAndView;
 	}
