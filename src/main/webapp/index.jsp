@@ -1,1 +1,1 @@
-<% response.sendRedirect("viewAllTeams.mvc"); %>
+<% response.sendRedirect("home.mvc"); %>

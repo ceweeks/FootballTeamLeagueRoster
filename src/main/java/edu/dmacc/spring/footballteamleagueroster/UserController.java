@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -15,7 +16,14 @@ public class UserController {
 	
 	private static final String[] grades = {"Freshman", "Sophomore", "Junior", "Senior"};
 	
-	@RequestMapping(value = "/form")
+	@RequestMapping(value = "/home")
+	public ModelAndView mainMenu() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("pages/mainMenu.jsp");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value = "/playerForm", params="addPlayer", method=RequestMethod.POST)
 		public ModelAndView player(Team team) {
 			ModelAndView modelAndView = new ModelAndView();
 			modelAndView.setViewName("pages/playerForm.jsp");
@@ -41,6 +49,16 @@ public class UserController {
 			modelAndView.setViewName("pages/viewAllPlayers.jsp");
 			modelAndView.addObject("all", allPlayers);
 			return modelAndView;
+	}
+	
+	//View all players of the specified team
+	@RequestMapping(value = "/playerForm", params="viewPlayers", method=RequestMethod.POST)
+	public ModelAndView viewPlayers(Team team) {
+		ModelAndView modelAndView = new ModelAndView();
+		List<Player> allPlayers = pdao.getAllTeamPlayers(team.getId());
+		modelAndView.setViewName("pages/viewAllPlayers.jsp");
+		modelAndView.addObject("all", allPlayers);
+		return modelAndView;
 	}
 	
 	@RequestMapping(value = "/viewAllTeams")

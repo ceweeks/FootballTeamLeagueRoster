@@ -8,15 +8,18 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>View All Teams</title>
+<title>Football Roster</title>
 </head>
 <body>
-<mvc:form modelAttribute="team" action="form.mvc" id="selectTeamForm">
+<h2>All Teams</h2>
+<p>Below is a list of all teams in the league. Select a team<br>
+to add a player or view all players.</p><br>
+<mvc:form modelAttribute="team" action="playerForm.mvc" id="selectTeamForm" method="post">
 	<c:forEach items="${all}" var="item">
 		<table>
 			<tr>
-				<td><mvc:radiobutton path="id" value="${item.id}"/></td>
-				<td>Team Name</td>
+				<td><input type="radio" name="id" path="id" value="${item.id}" required/></td>
+				<td>Team Name: </td>
 				<td>${item.teamName}</td>
 				<td><mvc:hidden path="teamName" value="${item.teamName}"/></td>
 			</tr>
@@ -26,12 +29,10 @@
 		<br />
 	</c:forEach>
 	
-	<input type="submit" value="Add a Player" id="addPlayerButton">
-	<input type="button" value="View Players" id="viewPlayersButton" onclick="location.href='viewAllPlayers.mvc'">
+	<input type="submit" value="Add a Player to the Team" id="addPlayerButton" name="addPlayer">
+	<input type="submit" value="View all Players of the Team" id="viewPlayersButton" name="viewPlayers">
 </mvc:form>	
 	<br>
-	<a href="form.mvc">Add a new player</a><br/>
-	<a href="addTeam.mvc">Add a new team</a>
+	<a href="home.mvc">Return to main menu</a>
 </body>
-
 </html>

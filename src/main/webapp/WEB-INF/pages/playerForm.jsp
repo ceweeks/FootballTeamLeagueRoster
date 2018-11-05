@@ -7,10 +7,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Spring MVC Form Handling</title>
+<title>Football Roster</title>
 </head>
 <body>
-<h2>Football Roster</h2>
+<h2>Add a Player</h2>
+<p>Please fill in the below form to create a new<br>
+player within the selected team</p><br>
 <mvc:form modelAttribute="player" action="result.mvc" id="playerForm">
 	<table>
 	    <tr>
@@ -47,10 +49,8 @@
 	    </tr>
 	</table>  
 </mvc:form>
-<a href = "viewAllPlayers.mvc">View current roster</a><br/>
-<a href = "viewAllTeams.mvc">View all teams</a>
-
-<br>
+	<br>
+	<a href="home.mvc">Return to main menu</a>
 
 </body>
 

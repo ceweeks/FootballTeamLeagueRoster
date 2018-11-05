@@ -8,33 +8,35 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Full Roster</title>
+<title>Football Roster</title>
 </head>
 <body>
+	<h2>All Players</h2>
+	<p>Below is a list of all players in the league.</p><br>
 	<c:forEach items="${all}" var="item">
 		<table>
 			<tr>
-				<td>First Name</td>
+				<td>First Name: </td>
 				<td>${item.firstName}</td>
 			</tr>
 			<tr>
-				<td>Jersey Number</td>
+				<td>Jersey Number: </td>
 				<td>${item.number}</td>
 			</tr>
 			<tr>
-				<td>Height</td>
+				<td>Height: </td>
 				<td>${item.height}</td>
 			</tr>
 			<tr>
-				<td>Weight</td>
+				<td>Weight: </td>
 				<td>${item.weight}</td>
 			</tr>
 			<tr>
-				<td>Position</td>
+				<td>Position: </td>
 				<td>${item.position}</td>
 			</tr>
 			<tr>
-				<td>Grade Level</td>
+				<td>Grade Level: </td>
 				<td>${item.grade}</td>
 			</tr>
 
@@ -43,7 +45,8 @@
 		<hr style="text-align: left; margin-left: 0; width: 25%">
 		<br />
 	</c:forEach>
-	<a href="form.mvc">Add a new player</a>
+		<br>
+	<a href="home.mvc">Return to main menu</a>
 </body>
 
 </html>
